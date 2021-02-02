@@ -32,7 +32,8 @@ namespace BlackJackCS
 
         public Deck()
         {
-            this.Cards = new List<Card>();
+            List<Card> cards = new List<Card>();
+            this.Cards = cards;
             var suits = new List<string> { "Clubs", "Diamonds", "Hearts", "Spades" };
             var faces = new List<string> { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
             foreach (var suit in suits)
@@ -42,17 +43,17 @@ namespace BlackJackCS
                     var face = faces[i];
                     // var value = i < 9 ? i + 1 : 10;
                     var value = i;
-                    if (i < 1)
+                    if (value < 1)
                     {
-                        i = 11;
+                        value = 11;
                     }
-                    else if (i < 9)
+                    else if (value < 9)
                     {
-                        i = i + 1;
+                        value = i + 1;
                     }
                     else
                     {
-                        i = 10;
+                        value = 10;
                     }
 
                     this.Cards.Add(new Card(face, suit, value));
@@ -143,6 +144,7 @@ namespace BlackJackCS
                     {
                         Console.WriteLine("You HIT");
                         player.Add(deck.Deal());
+                        player.Print();
 
                         // If `<Hand>` score > 21 Player "busts"
                         if (player.Score() >= 21) break;
