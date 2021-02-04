@@ -41,7 +41,6 @@ namespace BlackJackCS
                 for (int i = 0; i < faces.Count; i++) // We meant for Ace = Value 11
                 {
                     var face = faces[i];
-                    // var value = i < 9 ? i + 1 : 10;
                     var value = i;
                     if (value < 1)
                     {
@@ -158,7 +157,7 @@ namespace BlackJackCS
                 Console.WriteLine($"The player's hand scores: {player.Score()}");
                 if (player.Score() > 21)
                 {
-                    Console.WriteLine("Sorry, you lose.");
+                    Console.WriteLine("Sorry, you lose!");
                 }
                 else
                 {
